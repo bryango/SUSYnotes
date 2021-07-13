@@ -165,7 +165,7 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 	\begin{equation}
 		\Tr\,(-1)^F e^{-\beta H}
 	\end{equation}
-	Here the trace goes over the entire Hilbert space, but only the ground states actually contribute, since excited states are all paired up and canceled. The $e^{-\beta H}$ factor can be understood as regularization, and the final answer should simply be $\Tr\,(-1)^F = \Tr_0 (-1)^F$ with no $\beta$ dependence. In fact, it's also robust under small deformations of the theory, i.e.\ it's a \textit{topological invariant} of the theory. 
+	Here the trace goes over the entire Hilbert space, but only the zero energy ground states actually contribute, since excited states are all paired up and canceled. The $e^{-\beta H}$ factor can be understood as regularization, and the final answer should simply be $\Tr\,(-1)^F = \Tr_0 (-1)^F$ with no $\beta$ dependence. In fact, it's also robust under small deformations of the theory, i.e.\ it's a \textit{topological invariant} of the theory. 
 	
 	\begin{itemize}
 	\item If one finds that $\Tr\,(-1)^F \ne 0$, that means there is at least one zero energy ground state, namely, SUSY is unbroken. 
@@ -183,22 +183,22 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 	\end{equation}
 	\vspace{-\baselineskip}
 	\begin{equation}
-		Q\mcal{H}_B \equiv M\mcal{H}_F,
+		Q(\mcal{H}_B) \equiv \mcal{Q(}\mcal{H}_F),
 	\quad
-		Q\mcal{H}_F \equiv M^\dagger\mcal{H}_B,
+		Q(\mcal{H}_F) \equiv \mcal{Q}^\dagger(\mcal{H}_B),
 	\end{equation}
 	Here we've used the self-adjoint Majorana super charge $Q$, which decomposes into:
 	\begin{equation}
-		M\colon \mcal{H}_B \longto \mcal{H}_F,
+		\mcal{Q}\colon \mcal{H}_B \longto \mcal{H}_F,
 	\quad
-		M^\dagger\colon \mcal{H}_F \longto \mcal{H}_B,
+		\mcal{Q}^\dagger\colon \mcal{H}_F \longto \mcal{H}_B,
 	\end{equation}
 	
 	Zero energy bosonic states are zero-modes of $M$, while zero energy fermionic states are zero-modes of $M^\dagger$. We see that the Witten index is precisely the index of $M$:
 	\begin{equation}
 		\Tr\,(-1)^F
 		= N_B - N_F
-		= \dim \ker M - \dim \ker M^\dagger
+		= \dim \ker \mcal{Q} - \dim \ker \mcal{Q}^\dagger
 	\end{equation}
 	For more on this, check out the first few sections of the original paper: \textcite{Witten:1982df}. 
 	
