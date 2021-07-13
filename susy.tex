@@ -1,0 +1,363 @@
+% !TeX document-id = {b5392a94-51a3-49d1-9ba5-698bc09f9d35}
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX TS-program = pdflatex
+% !TeX TXS-program:bibliography = biber -l zh__pinyin --output-safechars %
+
+\documentclass[a4paper
+	,10pt
+%	,twoside
+]{article}
+
+\input{preamble.tex}
+
+\title{Understanding Supersymmetry}
+\author{The Superfilm Club, Summer 2021 @ \textkai{近春园}}
+\addbibresource{susy.bib}
+
+\makeatletter
+\newcommand{\nobeginpar}{\@beginparpenalty=10000}
+\makeatother
+
+\newcommand{\speaker}[1]{\noindent\textbf{Speaker:} #1}
+\newcommand{\references}[1]{\noindent\textbf{References:} #1}
+
+\begin{document}
+\maketitle
+\pagenumbering{arabic}
+\thispagestyle{empty}
+
+%\vspace*{-.5\baselineskip}
+
+\setlength{\parskip}{.1\baselineskip}
+\tableofcontents
+\setlength{\parskip}{\parskipnorm}
+
+\addtocounter{section}{-1}
+\section{Main References}
+\raggedright
+\begin{itemize}
+\item Primary:
+	\begin{itemize}[itemsep=\parskip]%[leftmargin=2em]
+	\item[\cite{Argyres:1996abc}]\fullcite{Argyres:1996abc}
+		\par \textit{Recommended by Yanyan.}
+		
+	\item[\cite{Tachikawa:2018sae}]\fullcite{Tachikawa:2018sae}
+		\par \textit{Recommended by Chi-Ming.}
+		
+	\item[\cite{Figueroa-OFarrill:2001xbd}]\fullcite{Figueroa-OFarrill:2001xbd}
+		\par \textit{Recommended by Mauricio.}
+		
+	\item[\cite{VanProeyen:1999ni}]\fullcite{VanProeyen:1999ni}
+		\par \textit{Recommended by Mauricio.}
+		
+	\end{itemize}
+\item Secondary:
+	\begin{itemize}
+	\item[\cite{Freedman:2012zz}]\fullcite{Freedman:2012zz}
+	
+	\item[\cite{Wess:1992cp}]\fullcite{Wess:1992cp}
+	
+	\item[\cite{Hori:2003ic}]\fullcite{Hori:2003ic}
+	
+	\item[\cite{figueroa2015majorana}]\fullcite{figueroa2015majorana}
+	
+	\item[\cite{Zhou:2018abc}]\fullcite{Zhou:2018abc}
+	
+	\item[\cite{Kapranov:2015nft}]\fullcite{Kapranov:2015nft}
+		\par \textit{Recommended by Yuan.}
+		
+	\end{itemize}
+\end{itemize}
+\justifying
+
+\section{Algebra \& Unitary Representations}
+	\speaker{Yanyan ``Handsome'' Li}\\
+	\references{
+	\begin{enumerate}[noitemsep,topsep=0pt]
+	\item \textcite{Argyres:1996abc}, Section 5
+	\item \textcite{Wess:1992cp}, Chapter II
+	\end{enumerate}
+	}\vspace{.5\baselineskip}
+	
+	The generic form of a 4D SUSY algebra with centeral charge is given by \cite{Wess:1992cp}:
+	\begin{equation}
+		\{ Q^i_\alpha, \bar{Q}_{\dot{\alpha},j} \}
+		= 2\sigma^\mu_{\alpha\dot{\alpha}} P_\mu
+			\delta^i_j,
+	\quad
+		\{ Q^i_\alpha, \bar{Q}^j_{\beta} \}
+		= 2\epsilon_{\alpha\beta} Z^{ij}
+	\end{equation}
+	Here $i,j$ labels $\mcal{N}$ ``flavors'' of SUSY. For minimal SUSY we have $\mcal{N} = 1$, and we can drop the $i,j$ indices. Also $Z^{ij} = -Z^{ji}$, so there is no central extension when $\mcal{N} = 1$. 
+	
+	$Q$ is understood as the ``square root'' of $P$. 
+	Note that it's been a fine tradition\footnote{
+		\textkai{优良传统}.
+	} of physicists (and experimental mathematicians) to take the square root of un-rootable things. For example, $\sqrt{-1}$ gives us $i$, and $\sqrt{\Box^2} = \sqrt{-P_u P^\mu}$ gives us the $\gamma$ matrices (thanks to Dirac). 
+	
+	Remarks:
+	\begin{enumerate}
+	\item $Q$ carries a spinor index $\alpha$ (or $\dot{\alpha}$), so it lives in the spinor representation of the Lorentz group, or equivalently, the fundamental representation of the Spin group. 
+	
+	\item The structure of this algebra can be generalized to $D$ dimensions. $(Q_\alpha, \bar{Q}_{\dot{\alpha}})$ forms a \mbox{(symplectic)}\footnote{
+		This happens when the metric signature $p - q \equiv 3,4,5\,\mop{mod}\,8$. See e.g.~\textcite{figueroa2015majorana}, or Section~3.3 and 12.1 of \textit{Supergravity} \cite{Freedman:2012zz}, or Mauricio Romo's lecture notes. In Lorentzian signature ($p = D-1, q = 1$), this corresponds to $D = 5,6,7$ dimensions; see e.g.~Table B.1 of \textcite{Polchinski:1998rq}. A worked example in 6D is given by \cite{Gustavsson:2001uw}. Also, higher form centeral charges are possible in higher dimensions. 
+	} (pseudo)\footnote{
+		Pseudo-Majorana spinors exist for spacetime signature $(p,q)$ if and only if Majorana spinors exist for $(q,p)$. See \textcite{figueroa2015majorana} and Section~3.3 of \textit{Supergravity} \cite{Freedman:2012zz}
+	} Majorana spinor, where $\bar{Q}$ denotes charge conjugation \cite{Freedman:2012zz}. 
+	
+	\item $(Q_\alpha, \bar{Q}_{\dot{\alpha}})$ acts like (fermionic) annilation and creation operators (ladder operators). We can write down its unitary irreducible representations (unitary irreps) on the Hilbert space, following Wigner's little group representation for the Poincar\'e group. 
+	\end{enumerate}
+\subsection{Equal amount of bosonic \& fermionic (excited) states}
+	$Q$ maps bosonic states to fermionic states, and vice versa. We thus have:
+	\begin{equation}
+		(-1)^F Q = - Q\,(-1)^F
+	\label{eq:fermion_number_sign}
+	\end{equation}
+	$F$ is the fermion number operator. $(-1)^F$ can be explicitly constructed from a $2\pi$ rotation \cite{Argyres:1996abc,Witten:1982df}: \mbox{$
+		(-1)^F = e^{2\pi i J_z}
+	$}. This follows from the fact that spin-$\frac{1}{2}$ objects gain a $(-1)$ factor under a $2\pi$ rotation. 
+	
+	On the other hand, recall that $Q$ acts as a ladder operator, therefore:
+	\begin{equation}
+		F Q = Q\,(F \pm 1),
+	\quad\text{i.e.}\quad
+		[F, Q] = \pm Q
+	\label{eq:fermion_number_R_symmetry}
+	\end{equation}
+	The \mquote{+} sign corresponds to $\bar{Q}_{\dot{\alpha}}$, while the \mquote{-} sign corresponds to $Q_\alpha$. 
+	\eqref{eq:fermion_number_sign} can thus be understood as the exponential of \eqref{eq:fermion_number_R_symmetry}, i.e.\ $(-1)^F = e^{i\pi F} = e^{-i\pi F}$,
+	\begin{equation}
+		(-1)^F Q\,(-1)^F
+		= e^{i\pi F} Q\,e^{-i\pi F}
+		= e^{\pm i\pi} Q
+		= -Q
+	\end{equation}
+	
+	There is more story behind \eqref{eq:fermion_number_R_symmetry}; in fact, $F$ generates an automorphism of the SUSY algebra. It is part of the \textit{R-symmetry}, and can be added to the algebra as an extension. 
+	In Lorentzian 4D, the maximal amount of R-symmetry\footnote{
+		This comes from the maximal extension of the SUSY algebra. It is common that, given a specific theory, only some of the R-symmetries are preserved, while others are broken. 
+	} is $\mrm{U}(\mcal{N})$, and $F$ is the generator of the $\mrm{U}(1)_V$ subgroup; here the \mbox{subscript V} stands for ``vector'', meaning that the supercharge $Q^i$ transforms as a vector with index $i$ under the $\mrm{U}(1)_V$ action: all components labeled by $i$ gains the same phase shift under $\mrm{U}(1)$. 
+	
+	\newparagraph
+	Using \eqref{eq:fermion_number_sign} along with a bit of algebra \cite{Wess:1992cp}, we find that:
+	\begin{equation}
+		0 = \Tr \pqty\Big{
+			(-1)^F
+			\{ Q^i_\alpha, \bar{Q}_{\dot{\alpha},j} \}
+		}
+		= 2\sigma^\mu_{\alpha\dot{\alpha}} \delta^i_j
+			\Tr \pqty\Big{
+			(-1)^F P_\mu
+		}
+	\end{equation}
+	This implies that for fixed $P_\mu \ne 0$ we have:
+	\begin{equation}
+		\Tr_P (-1)^F = 0,
+	\quad
+		\mcal{H}_P = \Bqty\big{ \ket{P_\mu} }
+	\end{equation}
+	
+	This means that we have equal amount of bosonic \& fermionic (excited) states at each energy level in a SUSY theory. 
+	Note that for ground states $P_\mu = 0$, we don't necessary have $\Tr_0 (-1)^F = 0$. In fact, this is precisely the \textit{Witten index} \cite{Witten:1982df}:
+	\begin{equation}
+		\Tr\,(-1)^F e^{-\beta H}
+	\end{equation}
+	Here the trace goes over the entire Hilbert space, but only the ground states actually contribute, since excited states are all paired up and canceled. The $e^{-\beta H}$ factor can be understood as regularization, and the final answer should simply be $\Tr\,(-1)^F = \Tr_0 (-1)^F$ with no $\beta$ dependence. In fact, it's also robust under small deformations of the theory, i.e.\ it's a \textit{topological invariant} of the theory. 
+	
+	\begin{itemize}
+	\item If one finds that $\Tr\,(-1)^F \ne 0$, that means there is at least one zero energy ground state, namely, SUSY is unbroken. 
+	
+	\item On the other hand, if SUSY is spontaneously broken, then there are no zero energy ground states, so $\Tr\,(-1)^F = 0 - 0 = 0$. 
+	
+	\item It's also possible to have $\Tr\,(-1)^F = 0$ while SUSY is unbroken, namely the ground states also pair up exactly: $N_B = N_F$. However, practically speaking, SUSY is broken, since if not, an arbitrarily small perturbation by a relevant operator will give energy to the ground state, thus breaking SUSY \cite{Argyres:1996abc}. 
+	\end{itemize}
+	
+\subsection{Witten index \& elliptic genus}
+	
+	The Witten index can actually be understood as the index of an operator \cite{Witten:1982df}. We may split the Hilbert space $\mcal{H}$ of our theory into bosonic and fermionic subspaces:
+	\begin{equation}
+		\mcal{H} = \mcal{H}_B \oplus \mcal{H}_F,
+	\end{equation}
+	\vspace{-\baselineskip}
+	\begin{equation}
+		Q\mcal{H}_B \equiv M\mcal{H}_F,
+	\quad
+		Q\mcal{H}_F \equiv M^\dagger\mcal{H}_B,
+	\end{equation}
+	Here we've used the self-adjoint Majorana super charge $Q$, which decomposes into:
+	\begin{equation}
+		M\colon \mcal{H}_B \longto \mcal{H}_F,
+	\quad
+		M^\dagger\colon \mcal{H}_F \longto \mcal{H}_B,
+	\end{equation}
+	
+	Zero energy bosonic states are zero-modes of $M$, while zero energy fermionic states are zero-modes of $M^\dagger$. We see that the Witten index is precisely the index of $M$:
+	\begin{equation}
+		\Tr\,(-1)^F
+		= N_B - N_F
+		= \dim \ker M - \dim \ker M^\dagger
+	\end{equation}
+	For more on this, check out the first few sections of the original paper: \textcite{Witten:1982df}. 
+	
+	\newparagraph
+	A more refined invariant in 2D that involves only the left-moving (or right-moving) part of theory is the \textit{elliptic genus}. For 2D $\mcal{N} = (2,2)$ superconformal theory (SCFT), the fermion number:
+	\begin{equation}
+		F = F_V = J_0 + \bar{J}_0
+	\end{equation}
+	Here $J(z),\bar{J}(\bar{z})$ are bosonic currents. They can be understood as the infinite dimensional enhancement of the R-symmetry generators in an SCFT, while their 0-modes $J_0,\bar{J}_0$ corresponds to the original R-symmetry generators in the SUSY algebra. $F_V = J_0 + \bar{J}_0$ is the $\mrm{U}(1)_V$ generator, while $F_A = \bar{J}_0 - J_0$ is the $\mrm{U}(1)_A$ generator. The \mbox{subscript A} stands for ``axial'', meaning that $Q^i$ transforms in an axial representation of $\mrm{U}(1)$. For more on this, see e.g.~\cite{MauricioStuff}. 
+	
+	We can now define the elliptic genus, which looks just like the Witten index but with an additional insertion $y^{J_0}$, while the trace is restricted to the R-R sector:
+	\begin{equation}
+		\mrm{EG}(\tau,z)
+		= \Tr_{\text{R-R}} \pqty{
+			(-1)^{J_0 + \bar{J}_0}
+			y^{J_0}
+			q^{L_0 - \frac{c}{24}}
+			\bar{q}^{\bar{L}_0 - \frac{c}{24}}
+		}, \quad y = e^{2\pi i z}
+	\end{equation}
+	Here R-R stands for Ramond-Ramond, i.e.\ left and right-moving states both with periodic boundary conditions along the spatial cycle\footnote{
+		In the path integral formalism, the thermal circle is also periodic due to the $(-1)^F$ insertion. 
+	}. 
+	For a review on this, see e.g.~\cite{Anagiannis:2018jqf}. 
+	
+	$z$ is understood as the chemical potential associated with the charge $J_0$. Note that there is no $\bar{\tau}$ dependence in EG, for the same resaon that there is no $\beta$ dependence in the Witten index. Also the elliptic genus gets reduced to the Witten index when we take $z = 0$, and in this case the $\tau,\bar{\tau}$ dependences all drop out; here we note that although we formally trace over the entire Hilbert space for the Witten index, only the supersymmetric R-R ground states actually contributes. 
+	
+	Geometrically, the elliptic genus is a generalization of the usual genus. In particular, for $z = 0$ we recover the Witten index, which evalutates to the Euler characteristic $\chi(M)$, where $M$ is the \textit{target} manifold\footnote{
+		See Chapter 10.4 of \textit{Mirror Symmetry} \cite{Hori:2003ic}, or \textcite{Witten:1982df}. See also \cite{MauricioStuff} and:
+		\begin{itemize}[
+			topsep=.5ex,noitemsep,
+			leftmargin=4em
+		]
+		\item \https{physicsoverflow.org/23261}
+		\item \https{physics.stackexchange.com/a/183620}
+		\end{itemize}
+	}. This is due to the fact that $Q$ gets identified with the de Rham differential $\mquote{\dd}$ on the target $M$. This should become apparent as we introduce the superfield formalism and K\"ahler geometry in the next section. 
+	
+	
+	
+	
+\section{Superspace \& Superfields}
+	\speaker{Ban ``Bo'' Lin}\\
+	\references{
+	\begin{enumerate}[noitemsep,topsep=0pt]
+	\item \textcite{Argyres:1996abc}, Section 6
+	\item \citetitle{Hori:2003ic} \cite{Hori:2003ic}, Chapter 12
+	\end{enumerate}
+	}\vspace{.5\baselineskip}
+	
+	Superspace \& superfields encode the SUSY transformation implicitly, so we can write down manifestly SUSY-invariant actions. This is exactly similar to how we write down diff-invariant actions in usual QFT.
+	
+	A generic superfield will give a \textit{reducible} representation of the superalgebra. To get an \textit{irreducible} representation (\textit{irrep}), we must impose a constraint on the superfield which (anti-)commutes with the superalgebra. There are two possibilities for 4D $\mcal{N} = 1$:
+	\begin{enumerate}[noitemsep]
+	\item The reality condition: this lead to a vector multiplet.
+	\item The chirality condition:
+	\begin{equation}
+		\bar{D}_{\dot{\alpha}} \Phi = 0,
+	\quad
+		\Phi = \Phi(y,\theta),
+	\quad
+		y^\mu \equiv x^\mu
+			+ i\theta \sigma^\mu \bar{\theta}
+	\end{equation}
+	This gives us the chiral superfield $\Phi$. 
+	\end{enumerate}
+	
+	For 4D $\mcal{N} = 1$, a generic SUSY-invariant Lagrangian of the chiral superfields $\Phi$ is given by:
+	\begin{equation}
+		\mcal{L}
+		= \int \dd[4]{\theta} \mcal{K}(\Phi, \bar{\Phi})
+			+ \int \dd[2]{\theta}
+				\mcal{W}(\Phi)
+			+ \int \dd[2]{\bar{\theta}}
+				\bar{\mcal{W}}(\bar{\Phi})
+	\end{equation}
+	Remarks:
+	\begin{enumerate}
+	\item $\Phi$ can be a collection of chiral superfields $\Phi^a$, but here for simplicity we've suppressed the $a$ indices.
+	
+	\item $\mcal{K}(\Phi, \bar{\Phi})$ is the K\"ahler potential and gives us the kinetic terms of the component fields. The target automatically becomes a K\"ahler manifold where the component field $\phi$ is the target coordinate. The fermion fields $\psi$ are naturally interpreted as vectors in the tangent space to the K\"ahler manifold. 
+	
+	\item $\mcal{W}(\Phi)$ is the superpotential; it is holomorphic w.r.t.\,$\Phi$, and it generates the potential and interaction vertices for the component fields. 
+	\end{enumerate}
+\section{Holomorphy and Non-renormalization}
+	\speaker{Wen-Xin ``Bryan'' Lai}\\
+	\references{
+	\begin{enumerate}[noitemsep,topsep=0pt]
+	\item \textcite{Argyres:1996abc}, Section 7
+	\item \textcite{Intriligator:1995au}, Section 2
+	\item \textcite{Seiberg:1993vc}
+	\end{enumerate}
+	}\vspace{.5\baselineskip}
+	
+	\begin{equation}
+		\boxed{\text{Symmetry}}
+		\quad\xrightleftharpoons[
+			\text{``natural''}
+		]{\text{Ward}}\quad
+		\boxed{\text{Amplitudes / Couplings} \approx 0}\,,
+		\ \text{(almost) vanishing}
+	\end{equation}
+	
+	``If a bare parameter is unnaturally set to zero, radiative corrections lead to a renormalized non-zero value. Therefore, if we want a small renormalized value \textit{without} a symmetry, the bare value has to be \textit{fine-tuned}.'' --- \textcite{Seiberg:1993vc}
+	
+{\nobeginpar
+	The argument of non-renormalization by Dine, Polchinski and Seiberg \cite{Seiberg:1993vc}: 
+	
+	\begin{enumerate}
+	\item \textbf{Philosophy:} we \textit{believe} that the UV theory \textit{should} have almost no coupling and a lot of fields; think of string theory (where we have only one coupling) and string field theory (where there are $\infty$-ly many fields). In fact, this was explicitly pointed out in Section 4.2 of \mbox{\textcite{Dine:1996ui}}\footnote{
+		Oh my, it's \texttt{hep-ph}! This must come from a simpler time when SUSY is expected to be found by experiments. 
+	}:
+	
+		\begin{quote}
+			In string theory, all of the parameters \textit{are} expectation values of chiral fields.
+			Indeed, non-renormalization theorems in string theory, both for worldsheet and string perturbation theory, were proved by the sort of reasoning we have used above, long ago. 
+		\end{quote}
+	
+	\item \textbf{Wilsonian RG:} we flow towards an effective field theory in the IR, where we have many couplings and only a few fields. Almost all IR couplings $\lambda$ come from vacuum expectation values (VEVs) of some UV fields, $\lambda = \ave{\lambda(x)}$. This is the Higgs mechanism. 
+	
+	\item Assuming \textbf{SUSY is not broken} from $\Lambda_{\mrm{UV}}$ all the way down to the scale of our interest $\mu$, we can then promote the coupling $\lambda$ to a chiral superfield $\lambda(y,\theta)$, i.e.~we ``turn it on'' or make it dynamical, as we perform the RG flow. We have these powerful constraints:
+	
+		\begin{enumerate}
+		\item \textbf{Holomorphy:} due to SUSY, the superpotential $\mcal{W}(\Phi,\lambda)$ is holomorphic along the flow.
+		
+		\pagebreak[3]
+		
+		\item \textbf{Global symmetries:} as we promote $\lambda\leadsto\lambda(y,\theta)$ we see global symmetries in the UV. $\ave{\lambda(y,\theta)} = \lambda$ is understood as the \textit{spontaneous breaking} of these symmetries. They are restored as we promote $\lambda\leadsto\lambda(y,\theta)$, and they constrain the form of $\mcal{W}(\Phi,\lambda)$. 
+		
+		This is an example of \textit{selection rules}, just like what we've seen in quantum mechanics (QM) where symmetries constrain the spectrum. 
+		
+		\item \textbf{Weakly coupled IR:} the theory is free in the IR.
+		\end{enumerate}
+	
+	These constraints fix the form of $\mcal{W}(\Phi,\lambda)$ almost entirely. 
+	\end{enumerate}
+}
+	
+	\textit{Note:} in \cite{Seiberg:1993vc} Seiberg chose to call the non-renormalization in SUSY \textit{a violation of naturalness} in the conventional sense, since in the IR we see no global symmetry but we still have many vanishing amptitudes. But I believe it's okay to understand this as a new sense of naturalness, where the vanishing of amplitudes (or the rigid form of the potentials) is protected by supersymmetry and some ``hidden'' global symmetries (that are spontaneously broken in the IR). 
+	
+\subsection{Why can we turn on the couplings?}
+	We've argued that it's physically reasonable to turn on the coupling $\lambda$ and make it a dynamical field\footnote{
+		I believe this is the so-called ``un-Higgs-ing'' procedure.
+	}. On the other hand, as pointed out by \textcite{Argyres:1996abc}, we can simply think of this as ``just a trick'':
+	
+	\begin{quote}
+	We are certainly allowed to do so if we like (since the couplings enter in the microscopic (UV) theory in the same way a backgound chiral superfield would). The point of this trick is that it makes the restrictions on possible quantum corrections allowed by supersymmetry apparent. These restrictions are just a supersymmetric version of the familiar “selection rules” of QM.
+		
+	Perhaps an example from QM will make this clear: Recall the Stark effect, in which one calculates corrections to the hydrogen atom spectrum in a constant background electric field $E$... But the resulting perturbed energy levels cannot depend on the perturbing parameters $E$ arbitrarily. Indeed, one simply remarks that the electric field transforms as a vector $E$ under rotational symmetries, thus giving selection rules for which terms in a perturbative expansion in the electric field strength it can contribute to. On the other hand, these selection rules are equally valid without the interpretation of the electic field as a background field transforming in a certain way under a symmetry (which it breaks). Instead, one could think of it as an abstract perturbation, and the selection rules follow simply because it is \textit{consistent} to assign the perturbation transformation rules under the broken rotational symmetry.
+	\end{quote}
+	
+	I believe the best way to make sense of this is to have a generalized notion of symmetry, where background fields are allowed to transform non-trivially. In the QM example given above, we have $E$ as a background field, where in the field theory case we have the couplings $\lambda$ as background fields. 
+	
+	Ususally we demand a symmetry to keep the background fields invariant; this is not always convenient. We should also consider symmetries that act on \textit{the collection of all possible background configurations}. This is precisely the degenrate vacua we've seen when studying the Higgs mechanism. This justifies the trick of turning on $\lambda$. For more on this, see Section 2.1.3 of \textcite{Banados:2016zim}, and also Section 1.2 of \cite{Lai:2021abc}. 
+	
+	
+\vspace{1.2\baselineskip}
+\pagebreak[4]
+\raggedright
+\printbibliography[%
+%	title = {参考文献} %
+	,heading = bibintoc
+]
+\end{document}
