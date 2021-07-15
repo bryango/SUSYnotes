@@ -100,7 +100,9 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 	
 	Remarks:
 	\begin{enumerate}
-	\item $Q$ carries a spinor index $\alpha$ (or $\dot{\alpha}$), so it lives in the spinor representation of the Lorentz group, or equivalently, the fundamental representation of the Spin group. 
+	\item $Q$ carries a spinor index $\alpha$ (or $\dot{\alpha}$), so it lives in the spinor representation of the Lorentz group, or equivalently, the fundamental representation of the Spin group\footnote{
+		See a surprisingly good summary of the topic on \wikiref{https://en.wikipedia.org/wiki/Representation\_theory\_of\_the\_Lorentz\_group\#Finite-dimensional\_representations}{Representation theory of the Lorentz group \# Finite-dimensional representations}. 
+	}. 
 	
 	\item The structure of this algebra can be generalized to $D$ dimensions. $(Q_\alpha, \bar{Q}_{\dot{\alpha}})$ forms a \mbox{(symplectic)}\footnote{
 		This happens when the metric signature $p - q \equiv 3,4,5\,\mop{mod}\,8$. See e.g.~\textcite{figueroa2015majorana}, or Section~3.3 and 12.1 of \textit{Supergravity} \cite{Freedman:2012zz}, or Mauricio Romo's lecture notes. In Lorentzian signature ($p = D-1, q = 1$), this corresponds to $D = 5,6,7$ dimensions; see e.g.~Table B.1 of \textcite{Polchinski:1998rq}. A worked example in 6D is given by \cite{Gustavsson:2001uw}. Also, higher form centeral charges are possible in higher dimensions. 
@@ -324,7 +326,7 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 		\begin{enumerate}
 		\item \textbf{Holomorphy:} due to SUSY, the superpotential $\mcal{W}(\Phi,\lambda)$ is holomorphic along the flow.
 		
-		\pagebreak[3]
+%		\pagebreak[3]
 		
 		\item \textbf{Global symmetries:} as we promote $\lambda\leadsto\lambda(y,\theta)$ we see global symmetries in the UV. $\ave{\lambda(y,\theta)} = \lambda$ is understood as the \textit{spontaneous breaking} of these symmetries. They are restored as we promote $\lambda\leadsto\lambda(y,\theta)$, and they constrain the form of $\mcal{W}(\Phi,\lambda)$. 
 		
@@ -341,8 +343,11 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 	
 \subsection{Why can we turn on the couplings?}
 	We've argued that it's physically reasonable to turn on the coupling $\lambda$ and make it a dynamical field\footnote{
-		I believe this is the so-called ``un-Higgs-ing'' procedure.
-	}. On the other hand, as pointed out by \textcite{Argyres:1996abc}, we can simply think of this as ``just a trick'':
+		I believe this is the so-called ``un-Higgs-ing'' procedure, and the un-Higgsed field is called a ``spurion''. \\
+		See \https{physicsforums.com/threads/spurion-symmetry.205417}.
+	}. On the other hand, as pointed out by \textcite{Argyres:1996abc}, we can simply think of this as ``just a trick'' \footnote{
+		See also \https{physics.stackexchange.com/q/110926/162487}. 
+	}:
 	
 	\begin{quote}
 	We are certainly allowed to do so if we like (since the couplings enter in the microscopic (UV) theory in the same way a backgound chiral superfield would). The point of this trick is that it makes the restrictions on possible quantum corrections allowed by supersymmetry apparent. These restrictions are just a supersymmetric version of the familiar “selection rules” of QM.
