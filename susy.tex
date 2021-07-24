@@ -88,7 +88,7 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 		= 2\sigma^\mu_{\alpha\dot{\alpha}} P_\mu
 			\delta^i_j,
 	\quad
-		\{ Q^i_\alpha, \bar{Q}^j_{\beta} \}
+		\{ Q^i_\alpha, Q^j_{\beta} \}
 		= 2\epsilon_{\alpha\beta} Z^{ij}
 	\end{equation}
 	Here $i,j$ labels $\mcal{N}$ ``flavors'' of SUSY. For minimal SUSY we have $\mcal{N} = 1$, and we can drop the $i,j$ indices. Also $Z^{ij} = -Z^{ji}$, so there is no central extension when $\mcal{N} = 1$. 
@@ -110,7 +110,7 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 		Pseudo-Majorana spinors exist for spacetime signature $(p,q)$ if and only if Majorana spinors exist for $(q,p)$. See \textcite{figueroa2015majorana} and Section~3.3 of \textit{Supergravity} \cite{Freedman:2012zz}
 	} Majorana spinor, where $\bar{Q}$ denotes charge conjugation \cite{Freedman:2012zz}. 
 	
-	\item $(Q_\alpha, \bar{Q}_{\dot{\alpha}})$ acts like (fermionic) annilation and creation operators (ladder operators). We can write down its unitary irreducible representations (unitary irreps) on the Hilbert space, following Wigner's little group representation for the Poincar\'e group. 
+	\item $(Q_\alpha, \bar{Q}_{\dot{\alpha}})$ act like (fermionic) annilation and creation operators (ladder operators). We can write down its unitary irreducible representations (unitary irreps) on the Hilbert space, following Wigner's little group representation for the Poincar\'e group. 
 	\end{enumerate}
 \subsection{Equal amount of bosonic \& fermionic (excited) states}
 	$Q$ maps bosonic states to fermionic states, and vice versa. We thus have:
@@ -228,6 +228,9 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 	
 	$z$ is understood as the chemical potential associated with the charge $J_0$. Note that there is no $\bar{\tau}$ dependence in EG, for the same resaon that there is no $\beta$ dependence in the Witten index. Also the elliptic genus gets reduced to the Witten index when we take $z = 0$, and in this case the $\tau,\bar{\tau}$ dependences all drop out; here we note that although we formally trace over the entire Hilbert space for the Witten index, only the supersymmetric R-R ground states actually contributes. 
 	
+	On the other hand, for general $z$ the elliptic genus counts states that are R ground state on the one side, but includes R excited states on the other side. 
+	It contains a lot more information but still has the rigidity property of the Witten index which makes it possible to compute for many SCFTs, and as such it offers a good balance between information content and computability. 
+	
 	Geometrically, the elliptic genus is a generalization of the usual genus. In particular, for $z = 0$ we recover the Witten index, which evalutates to the Euler characteristic $\chi(M)$, where $M$ is the \textit{target} manifold\footnote{
 		See Chapter 10.4 of \textit{Mirror Symmetry} \cite{Hori:2003ic}, or \textcite{Witten:1982df}. See also \cite{MauricioStuff} and:
 		\begin{itemize}[
@@ -237,10 +240,144 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 		\item \https{physicsoverflow.org/23261}
 		\item \https{physics.stackexchange.com/a/183620}
 		\end{itemize}
-	}. This is due to the fact that $Q$ gets identified with the de Rham differential $\mquote{\dd}$ on the target $M$. This should become apparent as we introduce the superfield formalism and K\"ahler geometry in the next section. 
+		\vspace{-.8\baselineskip}
+	}. This is due to the fact that $Q$ gets identified with the de Rham differential $\mquote{\dd}$ on the target $M$. This should become apparent as we introduce the superfield formalism and K\"ahler geometry in \S2. 
 	
+\subsection{Representations of the SUSY algebra}
+	We've noted that $(Q_\alpha, \bar{Q}_{\dot{\alpha}})$ act like ladder operators, therefore we can construct a highest weight representation starting from some \textit{Clifford vacuum} $\ket{\Omega}$ that is annihilated by $Q_\alpha,\alpha = 1,2$, and also $J_z$, which is the angular momentum along the $z$ direction. 
 	
+	Note that $\ket{\Omega}$ is only a highest weight state in a representation of the $\{Q,Q\}$ subalgebra, defined in the \textit{comoving frame} of a particle; it is not the Poincar\'e invariant vacuum $\ket{0}$ that we usually talks about in QFT. 
 	
+	For 4D $\mcal{N} = 1$, suppose $\ket{\Omega}$ has spin $j$, namely $J_z \ket{\Omega} = j\ket{\Omega}$, then we have:
+	\begin{itemize}[leftmargin=0pt,itemindent=*]
+	\item \textbf{Massive representation:}
+		\begin{equation}
+			\ket{\Omega},
+			\ \bar{Q}_{\dot{\alpha}=1,2}
+				\ket{\Omega},
+			\ \bar{Q}_{\dot{1}}\bar{Q}_{\dot{2}}
+				\ket{\Omega}
+		\end{equation}
+		i.e.~a $1+2+1 = 4$ dimensional representation of the $\{Q,Q\}$ subalgebra. 
+		Note that this is \textit{not} yet invariant under the little group $\mrm{Spin}(3) \supset \mrm{SO}(3)$. For that we need to include the $\mrm{Spin}(3)$ descendents by acting on the angular momentum lowering operator $J_-$. 
+	\end{itemize}
+	
+	Before actually doing that, let's first look at the spin of these states. 
+	The $J_z$ eigenvalue for these states can be read out from the $[J_z,\bar{Q}_{\dot{\alpha}}]$ commutator. Recall that $\bar{Q}_{\dot{\alpha}}$ itself carries a spinor index $\dot{\alpha}$, namely it also lives in a representation of the Lorentz group! 
+	The result is that\footnote{
+		See Mauricio Romo's lecture notes, and also \cite{Terning:2006bq}. 
+	} $\bar{Q}_{\dot{\alpha}=1,2} \ket{\Omega}$ will be a $\mrm{Spin}(3)$ highest weight state of $J_z$ eigenvalue $j \pm \frac{1}{2}$,
+	\begin{equation}
+		J_z\,\pqty\Big{
+			\idty,
+			\ \bar{Q}_{\dot{\alpha}=1,2},
+			\ \bar{Q}_{\dot{1}}\bar{Q}_{\dot{2}}
+		} \ket{\Omega} = \pqty\Big{
+			j,\ j\pm\tfrac{1}{2},\ j
+		} \ket{\Omega}
+	\end{equation}
+	
+	\begin{itemize}[label=--]
+	\item \textbf{Chiral multiplet} $\{\psi_\alpha, \Phi\}$: for $j = 0$, the $\pm\frac{1}{2}$ states actually combine to live in a \textit{single} $\mrm{Spin}(3)$ fundamental representation, denoted as $\frac{1}{2}$. 
+	In terms of field content, we have 1 Weyl spinor $\psi_\alpha$ and 2 real scalars $\phi_{1,2}$ (or equivalently, 1 complex scalar $\Phi$). These are ``quarks'' and ``squarks''. 
+	
+	\item \textbf{Vector multiplet} $
+		\{\phi,\psi_\alpha,\lambda_\alpha,A'_\mu\}
+	$: for $j = \frac{1}{2}$, the $j\pm\frac{1}{2} = 0,1$ states and their $\mrm{Spin}(3)$ descendents live in a $0\oplus 1$ representation of $\mrm{Spin}(3)$. 
+	In terms of field content, we have 1 real scalars $\phi$, 1 massive vector $A'_\mu$, and 2 Weyl spinor $\psi_\alpha, \lambda_\alpha$. 
+	\end{itemize}
+	
+	In general, the $j \pm \frac{1}{2}$ states and their $\mrm{Spin}(3)$ descendents live in a $
+		\pqty{j - \frac{1}{2}}
+		\oplus
+		\pqty{j + \frac{1}{2}}
+	$ representation of $\mrm{Spin}(3)$. We can check that the degrees of freedom indeed match:
+	\begin{equation}
+	\begin{array}{ccccc}
+		\Bqty\Big{
+			(J_-)^k\,
+			\bar{Q}_{\dot{\alpha}=1,2}
+			\ket{\Omega}
+		}_{k\,\le\,2j+1}
+		&=& \pqty{j - \tfrac{1}{2}}
+			&\oplus&
+			\pqty{j + \tfrac{1}{2}}
+	\\[2ex]
+		2\times (2j+1)
+		&=& 2\,(j-\tfrac{1}{2}) + 1
+			&+&
+			2\,(j+\tfrac{1}{2}) + 1
+	\end{array}
+	\end{equation}
+	Here $J_-$ is the $\mrm{Spin}(3)$ lowering operator. 
+	Namely, including the $\mrm{Spin}(3)$ descendents, the dimension of the $\mrm{super} \times \mrm{Spin}(3)$ representation is thus $4\times (2j+1)$. 
+	Note that for $j = 0$ the situation is special; in that case we simply have:
+	\begin{equation}
+	\begin{array}{ccccc}
+		\Bqty\Big{
+			\bar{Q}_{\dot{1}} \ket{\Omega},
+			\ \bar{Q}_{\dot{2}} \ket{\Omega}
+			\propto J_-\,
+				\bar{Q}_{\dot{1}} \ket{\Omega}
+		} 
+		&=& \pqty{\tfrac{1}{2}}
+	\\[2ex]
+		2\times (2\times 0+1)
+		&=& 2\,(\tfrac{1}{2}) + 1
+	\end{array}
+	\end{equation}
+	
+	\begin{itemize}[leftmargin=0pt,itemindent=*]
+	\item \textbf{Massless representation:}
+		\begin{equation}
+			\ket{\Omega},
+			\ \bar{Q}_{\dot{\alpha}=1} \ket{\Omega}
+		\end{equation}
+		i.e.~a $1+1 = 2$ dimensional representation of the $\{Q,Q\}$ subalgebra. They have helicity $\lambda,\lambda + \frac{1}{2}$. Combined with their CPT conjugates, we have 4 states with helicity: $\pm\lambda,\pm\pqty{\lambda + \frac{1}{2}}$. 
+	\end{itemize}
+	
+	\begin{itemize}[label=--]
+	\item \textbf{Chiral multiplet} $\{\Phi, \psi_\alpha\}$: for $\lambda = 0$, we have 2 real scalars $\phi_{1,2}$ (or equivalently, 1 complex scalar $\Phi$) and 1 Weyl spinor $\psi_\alpha$. Note that the field content is precisely the same as the massive chiral multiplet. 
+	
+	\item \textbf{Vector multiplet} $\{\lambda_\alpha, A_\mu\}$: for $\lambda = \frac{1}{2}$, we have 1 massless vector $A_\mu$ and 1 Weyl spinor $\lambda_\alpha$. These are gauge bosons and ``gauginos''. Note that this multiplet is significantly ``smaller'' than the massive vector multiplet. 
+	\end{itemize}
+	
+	Starting with higher spin Clifford vacua results in multiplets with spins higher than 1. This is undesirable for \textit{massless} particles in non-gravitational theories, due to \textit{Weinberg--Witten}\footnote{
+		See e.g.\ \https{physics.stackexchange.com/a/15164}. 
+	}. 
+	
+	Also, the multiplets grow large if we have extended SUSY, and the massless representation contains states with helicity $\lambda,\cdots,\lambda + \frac{\mcal{N}}{2}$ \cite{Terning:2006bq}. 
+	
+	\begin{itemize}
+	\item \textbf{16 supercharges without gravity:} $\abs{\lambda} \le 1$, $\abs{\lambda + \frac{\mcal{N}}{2}} \le 1$, which give us $\mcal{N} = 4$ in 4D. There are in total 16 supercharges: $
+		\{ Q^i_\alpha, \bar{Q}_{\dot{\alpha},j} \}_{i,j = 1,\cdots 4}
+	$. In fact 16 is the maximal amount of SUSY in \textit{any} dimension, if we want spin $\le 1$. 
+	
+	\item \textbf{32 supercharges with gravity:} $\abs{\lambda} \le 2$, $\abs{\lambda + \frac{\mcal{N}}{2}} \le 2$, which give us $\mcal{N} = 8$ supergravity (SUGRA) in 4D. Similarly 32 is the maximal amount of SUSY in any dimension, if we want spin $\le 2$. For example, in 11D $\mcal{N} = 1$ we have precisely 32 supercharges, and the SUGRA multiplet is the smallest multiplet. Therefore the maximum dimension for SUGRA is 11. 
+	\end{itemize}
+	Note that these massless supermultiplets have helicity $-\abs{\lambda},\cdots,\abs{\lambda}$ and is thus CPT self-conjugate. 
+	
+	\newparagraph
+	We actually care more about the massless representations and less about the massive ones. The reason is that massless representations are considered more ``fundamental'', since masses are usually generated dynamically through spontaneous symmetry breaking. This philosophy is discussed in \S3 in more details. 
+	
+	For 4D $\mcal{N} = 1$, we can already see this by counting degrees of freedom:
+	\begin{equation}
+	\begin{array}{ccccc}
+		\text{(massless chiral)}
+		&\oplus&
+		\text{(massless vector)}
+		&\cong&
+		\text{(massive vector)}
+	\\[1ex]
+		\{\Phi, \psi_\alpha\}
+		&\oplus&
+		\{\lambda_\alpha, A_\mu\}
+		&\cong&
+		\{\phi,\psi_\alpha,\lambda_\alpha,A'_\mu\}
+	\end{array}
+	\end{equation}
+	This is indeed the case dynamically: massive vector multiplets arise by a supersymmetric analog of the Higgs mechanism \cite{Argyres:1996abc}.
+	$\Phi$ is like the complex Higgs field. One component (the Goldstone mode) of $\Phi$ gets ``eaten'' by the gauge field $A_\mu$ through symmetry breaking. The degrees of freedom combine into the massive vector $A'_\mu$. The other component of $\Phi$ remains as the real scalar $\phi$. 
 	
 \section{Superspace \& Superfields}
 	\speaker{Ban ``Bo'' Lin}\\
@@ -295,6 +432,7 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 	\end{enumerate}
 	}\vspace{.5\baselineskip}
 	
+	``If a bare parameter is unnaturally set to zero, radiative corrections lead to a renormalized non-zero value. Therefore, if we want a small renormalized value \textit{without} a symmetry, the bare value has to be \textit{fine-tuned}.'' --- \textcite{Seiberg:1993vc} on naturalness. 
 	\begin{equation}
 		\boxed{\text{Symmetry}}
 		\quad\xrightleftharpoons[
@@ -303,9 +441,6 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 		\boxed{\text{Amplitudes / Couplings} \approx 0}\,,
 		\ \text{(almost) vanishing}
 	\end{equation}
-	
-	``If a bare parameter is unnaturally set to zero, radiative corrections lead to a renormalized non-zero value. Therefore, if we want a small renormalized value \textit{without} a symmetry, the bare value has to be \textit{fine-tuned}.'' --- \textcite{Seiberg:1993vc}
-	
 {\nobeginpar
 	The argument of non-renormalization by Dine, Polchinski and Seiberg \cite{Seiberg:1993vc}: 
 	
@@ -316,15 +451,21 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 	
 		\begin{quote}
 			In string theory, all of the parameters \textit{are} expectation values of chiral fields.
+			
 			Indeed, non-renormalization theorems in string theory, both for worldsheet and string perturbation theory, were proved by the sort of reasoning we have used above, long ago. 
 		\end{quote}
+	
+	However, the following argument should still hold even if such understanding is not true. For more on this, see the exposition in the following subsection. 
 	
 	\item \textbf{Wilsonian RG:} we flow towards an effective field theory in the IR, where we have many couplings and only a few fields. Almost all IR couplings $\lambda$ come from vacuum expectation values (VEVs) of some UV fields, $\lambda = \ave{\lambda(x)}$. This is the Higgs mechanism. 
 	
 	\item Assuming \textbf{SUSY is not broken} from $\Lambda_{\mrm{UV}}$ all the way down to the scale of our interest $\mu$, we can then promote the coupling $\lambda$ to a chiral superfield $\lambda(y,\theta)$, i.e.~we ``turn it on'' or make it dynamical, as we perform the RG flow. We have these powerful constraints:
 	
 		\begin{enumerate}
-		\item \textbf{Holomorphy:} due to SUSY, the superpotential $\mcal{W}(\Phi,\lambda)$ is holomorphic along the flow.
+		\item \textbf{Holomorphy:} due to SUSY, the superpotential $\mcal{W}(\Phi,\lambda)$ is holomorphic along the flow. 
+		In particular, the $\lambda$ dependence is holomorphic, since it's now been promoted to a chiral superfield\footnote{
+			There are subtleties about this statement; see \cite{Dine:1994su} for a more careful discussion. 
+		}. 
 		
 %		\pagebreak[3]
 		
@@ -334,7 +475,6 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 		
 		\item \textbf{Weakly coupled IR:} the theory is free in the IR.
 		\end{enumerate}
-	
 	These constraints fix the form of $\mcal{W}(\Phi,\lambda)$ almost entirely. 
 	\end{enumerate}
 }
@@ -344,21 +484,32 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 \subsection{Why can we turn on the couplings?}
 	We've argued that it's physically reasonable to turn on the coupling $\lambda$ and make it a dynamical field\footnote{
 		I believe this is the so-called ``un-Higgs-ing'' procedure, and the un-Higgsed field is called a ``spurion''. \\
+		\hspace*{2em}
 		See \https{physicsforums.com/threads/spurion-symmetry.205417}.
-	}. On the other hand, as pointed out by \textcite{Argyres:1996abc}, we can simply think of this as ``just a trick'' \footnote{
+	}. On the other hand, as pointed out by \textcite{Argyres:1996abc}, we can simply think of this as ``just a trick''\footnote{
 		See also \https{physics.stackexchange.com/q/110926/162487}. 
 	}:
 	
-	\begin{quote}
+	\begin{quote}\small
 	We are certainly allowed to do so if we like (since the couplings enter in the microscopic (UV) theory in the same way a backgound chiral superfield would). The point of this trick is that it makes the restrictions on possible quantum corrections allowed by supersymmetry apparent. These restrictions are just a supersymmetric version of the familiar “selection rules” of QM.
 		
-	Perhaps an example from QM will make this clear: Recall the Stark effect, in which one calculates corrections to the hydrogen atom spectrum in a constant background electric field $E$... But the resulting perturbed energy levels cannot depend on the perturbing parameters $E$ arbitrarily. Indeed, one simply remarks that the electric field transforms as a vector $E$ under rotational symmetries, thus giving selection rules for which terms in a perturbative expansion in the electric field strength it can contribute to. On the other hand, these selection rules are equally valid without the interpretation of the electic field as a background field transforming in a certain way under a symmetry (which it breaks). Instead, one could think of it as an abstract perturbation, and the selection rules follow simply because it is \textit{consistent} to assign the perturbation transformation rules under the broken rotational symmetry.
+	Perhaps an example from QM will make this clear: Recall the Stark effect, in which one calculates corrections to the hydrogen atom spectrum in a constant background electric field $E$... But the resulting perturbed energy levels cannot depend on the perturbing parameters $E$ arbitrarily. Indeed, one simply remarks that the electric field transforms as a vector $E$ under rotational symmetries, thus giving selection rules for which terms in a perturbative expansion in the electric field strength it can contribute to. \textit{On the other hand, these selection rules are equally valid without the interpretation of the electic field as a background field transforming in a certain way under a symmetry (which it breaks). Instead, one could think of it as an abstract perturbation, and the selection rules follow simply because it is \textbf{consistent} to assign the perturbation transformation rules under the broken rotational symmetry.}
 	\end{quote}
 	
 	I believe the best way to make sense of this is to have a generalized notion of symmetry, where background fields are allowed to transform non-trivially. In the QM example given above, we have $E$ as a background field, where in the field theory case we have the couplings $\lambda$ as background fields. 
 	
-	Ususally we demand a symmetry to keep the background fields invariant; this is not always convenient. We should also consider symmetries that act on \textit{the collection of all possible background configurations}. This is precisely the degenrate vacua we've seen when studying the Higgs mechanism. This justifies the trick of turning on $\lambda$. For more on this, see Section 2.1.3 of \textcite{Banados:2016zim}, and also Section 1.2 of \cite{Lai:2021abc}. 
+	Ususally we demand a symmetry to keep the background fields invariant; this is not always convenient. We should also consider symmetries that act on \textit{the collection of all possible background configurations}. This is precisely the degenrate vacua we've seen when studying the Higgs mechanism. This justifies the trick of turning on $\lambda$. For more on this, see Section 2.1.3 of \textcite{Banados:2016zim}%
+%	, and also Section 1.2 of \cite{Lai:2021abc}
+	. 
 	
+\section{Moduli space of vacua \& integrating out}
+	\speaker{Yuan Zhong}\\
+	\references{%
+%	\begin{enumerate}[noitemsep,topsep=0pt]
+%	\item
+	\textcite{Argyres:1996abc}, Section 7
+%	\end{enumerate}
+	}\vspace{.5\baselineskip}
 	
 \vspace{1.2\baselineskip}
 \pagebreak[4]
