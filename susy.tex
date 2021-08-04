@@ -4,6 +4,24 @@
 % !TeX TS-program = pdflatex
 % !TeX TXS-program:bibliography = biber -l zh__pinyin --output-safechars %
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% NOTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Please do not touch the file `preamble.tex`
+% ... which is auto-generated,
+% ... and your changes might be OVERWRITTEN
+% ... in later builds.
+%
+% Feel free to modify this file
+% ... in any way you want!
+%
+% Bryan
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% END of NOTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \documentclass[a4paper
 	,10pt
 %	,twoside
@@ -22,6 +40,15 @@
 \newcommand{\speaker}[1]{\noindent\textbf{Speaker:} #1}
 \newcommand{\references}[1]{\noindent\textbf{References:} #1}
 
+\let\narrowbar\bar
+\newcommand{\thinbar}[1]{\narrowbar{#1}}
+\renewcommand{\bar}[1]{\narrowbar{#1}}
+
+\let\widebar\overline
+\newcommand{\wbar}[1]{\widebar{#1}}
+
+\def\vev#1{\ave{#1}}
+
 \begin{document}
 \maketitle
 \pagenumbering{arabic}
@@ -29,7 +56,7 @@
 
 %\vspace*{-.5\baselineskip}
 
-This is a note for our recreational journal club on supersymmetry (SUSY). It is not meant to be self-contained; rather it's aimed to be a supplement for the main references listed below. We try not to repeat the main references, but to document our new understandings and additional references on relevant subjects. 
+This is a note for our recreational journal club on supersymmetry (SUSY). It is not meant to be self-contained; rather it's aimed to be an outline and a supplement for the main references listed below. We try not to repeat the main references too much, but to document our new understandings and additional references on relevant subjects. 
 
 \setlength{\parskip}{.1\baselineskip}
 \tableofcontents
@@ -54,6 +81,7 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 		\par \textit{Recommended by Mauricio.}
 		
 	\end{itemize}
+\pagebreak[3]
 \item Secondary:
 	\begin{itemize}
 	\item[\cite{Freedman:2012zz}]\fullcite{Freedman:2012zz}
@@ -278,13 +306,13 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 	\end{equation}
 	
 	\begin{itemize}[label=--]
-	\item \textbf{Chiral multiplet} $\{\psi_\alpha, \Phi\}$: for $j = 0$, the $\pm\frac{1}{2}$ states actually combine to live in a \textit{single} $\mrm{Spin}(3)$ fundamental representation, denoted as $\frac{1}{2}$. 
-	In terms of field content, we have 1 Weyl spinor $\psi_\alpha$ and 2 real scalars $\phi_{1,2}$ (or equivalently, 1 complex scalar $\Phi$). These are ``quarks'' and ``squarks''. 
+	\item \textbf{Chiral multiplet} $\{\phi,\psi_\alpha\}$: for $j = 0$, the $\pm\frac{1}{2}$ states actually combine to live in a \textit{single} $\mrm{Spin}(3)$ fundamental representation, denoted as $\frac{1}{2}$. 
+	In terms of field content, we have 1 Weyl spinor $\psi_\alpha$ and 2 real scalars $\phi_{1,2}$, which can be combined into 1 complex scalar $\phi$. These are ``quarks'' and ``squarks''. 
 	
 	\item \textbf{Vector multiplet} $
-		\{\phi,\psi_\alpha,\lambda_\alpha,A'_\mu\}
+		\{\phi',\psi_\alpha,\lambda_\alpha,A'_\mu\}
 	$: for $j = \frac{1}{2}$, the $j\pm\frac{1}{2} = 0,1$ states and their $\mrm{Spin}(3)$ descendents live in a $0\oplus 1$ representation of $\mrm{Spin}(3)$. 
-	In terms of field content, we have 1 real scalars $\phi$, 1 massive vector $A'_\mu$, and 2 Weyl spinor $\psi_\alpha, \lambda_\alpha$. 
+	In terms of field content, we have 1 \textit{real} scalars $\phi'$, 1 massive vector $A'_\mu$, and 2 Weyl spinors $\psi_\alpha, \lambda_\alpha$. 
 	\end{itemize}
 	
 	In general, the $j \pm \frac{1}{2}$ states and their $\mrm{Spin}(3)$ descendents live in a $
@@ -337,7 +365,7 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 	\end{itemize}
 	
 	\begin{itemize}[label=--]
-	\item \textbf{Chiral multiplet} $\{\Phi, \psi_\alpha\}$: for $\lambda = 0$, we have 2 real scalars $\phi_{1,2}$ (or equivalently, 1 complex scalar $\Phi$) and 1 Weyl spinor $\psi_\alpha$. Note that the field content is precisely the same as the massive chiral multiplet. 
+	\item \textbf{Chiral multiplet} $\{\phi, \psi_\alpha\}$: for $\lambda = 0$, we have 2 real scalars $\phi_{1,2}$ (or 1 complex scalar $\phi$) and 1 Weyl spinor $\psi_\alpha$. Note that the field content is precisely the same as the massive chiral multiplet. 
 	
 	\item \textbf{Vector multiplet} $\{\lambda_\alpha, A_\mu\}$: for $\lambda = \frac{1}{2}$, we have 1 massless vector $A_\mu$ and 1 Weyl spinor $\lambda_\alpha$. These are gauge bosons and ``gauginos''. Note that this multiplet is significantly ``smaller'' than the massive vector multiplet. 
 	\end{itemize}
@@ -369,15 +397,15 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 		&\cong&
 		\text{(massive vector)}
 	\\[1ex]
-		\{\Phi, \psi_\alpha\}
+		\{\phi, \psi_\alpha\}
 		&\oplus&
 		\{\lambda_\alpha, A_\mu\}
 		&\cong&
-		\{\phi,\psi_\alpha,\lambda_\alpha,A'_\mu\}
+		\{\phi',\psi_\alpha,\lambda_\alpha,A'_\mu\}
 	\end{array}
 	\end{equation}
 	This is indeed the case dynamically: massive vector multiplets arise by a supersymmetric analog of the Higgs mechanism \cite{Argyres:1996abc}.
-	$\Phi$ is like the complex Higgs field. One component (the Goldstone mode) of $\Phi$ gets ``eaten'' by the gauge field $A_\mu$ through symmetry breaking. The degrees of freedom combine into the massive vector $A'_\mu$. The other component of $\Phi$ remains as the real scalar $\phi$. 
+	$\phi$ is like the complex Higgs field. One component (the Goldstone mode) of $\phi$ gets ``eaten'' by the gauge field $A_\mu$ through symmetry breaking. The degrees of freedom combine into the massive vector $A'_\mu$. The other component of $\phi$ remains as the real scalar $\phi'$. 
 	
 \section{Superspace \& Superfields}
 	\speaker{Ban ``Bo'' Lin}\\
@@ -391,18 +419,30 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 	Superspace \& superfields encode the SUSY transformation implicitly, so we can write down manifestly SUSY-invariant actions. This is exactly similar to how we write down diff-invariant actions in usual QFT.
 	
 	A generic superfield will give a \textit{reducible} representation of the superalgebra. To get an \textit{irreducible} representation (\textit{irrep}), we must impose a constraint on the superfield which (anti-)commutes with the superalgebra. There are two possibilities for 4D $\mcal{N} = 1$:
-	\begin{enumerate}[noitemsep]
-	\item The reality condition: this lead to a vector multiplet.
-	\item The chirality condition:
+	\begin{enumerate}%[noitemsep]
+	\item \textbf{Reality condition:} this lead to a vector multiplet. We shall revisit this in the future. For now we will proceed to the next condition, which is:
+	
+	\item \textbf{Chirality condition:}
 	\begin{equation}
-		\bar{D}_{\dot{\alpha}} \Phi = 0,
-	\quad
+		\bar{D}_{\dot{\alpha}} \Phi = 0
+	\quad\Leftrightarrow\quad
 		\Phi = \Phi(y,\theta),
 	\quad
 		y^\mu \equiv x^\mu
 			+ i\theta \sigma^\mu \bar{\theta}
 	\end{equation}
-	This gives us the chiral superfield $\Phi$. 
+	This gives us the chiral superfield $\Phi$. It can be expanded in components as follows:
+	\begin{equation}
+	\begin{aligned}
+		\Phi
+		&= \phi(y) + \sqrt{2}\,\theta\,\psi(y)
+			+ \theta^2 F(y) \\
+		&= \phi(x) + \cdots
+			+ \theta^2 F(x)
+	\end{aligned}
+	\label{eq:chiral_components}
+	\end{equation}
+	Note that the first line is not the end of the story; to get to the actual component fields we have to write everything in terms of $(x,\theta)$. 
 	\end{enumerate}
 	
 	For 4D $\mcal{N} = 1$, a generic SUSY-invariant Lagrangian of the chiral superfields $\Phi$ is given by:
@@ -412,16 +452,73 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 			+ \int \dd[2]{\theta}
 				\mcal{W}(\Phi)
 			+ \int \dd[2]{\bar{\theta}}
-				\bar{\mcal{W}}(\bar{\Phi})
+				\wbar{\mcal{W}}(\bar{\Phi})
 	\end{equation}
-	Remarks:
+	$\Phi$ can be a collection of chiral superfields $\Phi^a$, but here for simplicity we've dropped the $a$ indices.
+	
 	\begin{enumerate}
-	\item $\Phi$ can be a collection of chiral superfields $\Phi^a$, but here for simplicity we've suppressed the $a$ indices.
+	\item $\mcal{K}(\Phi, \bar{\Phi})$ is the \textbf{K\"ahler potential} and gives us the kinetic terms of the component fields. 
+	The target automatically becomes a K\"ahler manifold where the component field $\phi$ is the target coordinate. A non-degenerate kinetic term corresponds to a positive definite metric \cite{Hori:2003ic}:
+	\begin{equation}
+		g_{i\wbar{j}}
+		= \pdd{i} \pdd{\wbar{j}}
+			\mcal{K}(\Phi, \bar{\Phi}),
+	\quad \pdd{i} = \pdv{\phi^i}
+	\end{equation}
+	On the other hand, the fermion fields $\psi$ are naturally interpreted as vectors in the tangent space to the K\"ahler manifold:
+	\begin{equation}
+		\psi, \bar{\psi}
+		\in \Gamma\pqty{
+				\Sigma,
+				\phi^* \mrm{T}M \otimes \mbb{C}
+			}
+	\end{equation}
+	Here $\Gamma\pqty{\Sigma,-}$ stands for sections of some bundle over $\Sigma$. See e.g.~\textit{Mirror Symmetry} \cite{Hori:2003ic}. 
 	
-	\item $\mcal{K}(\Phi, \bar{\Phi})$ is the K\"ahler potential and gives us the kinetic terms of the component fields. The target automatically becomes a K\"ahler manifold where the component field $\phi$ is the target coordinate. The fermion fields $\psi$ are naturally interpreted as vectors in the tangent space to the K\"ahler manifold. 
+%	\pagebreak[3]
 	
-	\item $\mcal{W}(\Phi)$ is the superpotential; it is holomorphic w.r.t.\,$\Phi$, and it generates the potential and interaction vertices for the component fields. 
+	\item $\mcal{W}(\Phi)$ is the \textbf{superpotential;} it is holomorphic w.r.t.\,$\Phi$, and it generates the potential and interaction vertices for the component fields. It's also called an \textbf{$F$-term}, probably due to the fact that:
+	\begin{equation}
+		\text{For}\ \,\mcal{W} = \Phi,
+	\ \,
+		\int \dd[2]{\theta} \mcal{W}
+		= F(x)
+	\end{equation}
+	Here $F(x)$ is the last component of a chiral superfield \eqref{eq:chiral_components}. Generally, we have:
+	\begin{equation}
+		\int \dd[2]{\theta}
+			\mcal{W}(\Phi^i)
+		= F^i \pdd{i}\mcal{W}
+			- \frac{1}{2} \psi^i \psi^j
+				\pdd{i} \pdd{j} \mcal{W}
+	\end{equation}
+	
 	\end{enumerate}
+	
+	A full expansion of the Lagrangian $\mcal{L}$ (including $\mcal{K}$ and $\mcal{W}$) reveals that $F$ has no kinetic term and is quadratic in the action, thus it can be safely integrated out. The result gives us the potential for the scalar component $\phi$:
+	\begin{equation}
+		V(\phi,\bar{\phi})
+		= g^{i\wbar{j}}
+			\,\pdd{i} \mcal{W}
+			\,\pdd{\wbar{j}} \wbar{\mcal{W}}
+		= \abs{\pd\mcal{W}}^2
+	\end{equation}
+	The classical vacua satisfy $\pd_i V = 0$. 
+%	Spontaneous breaking of internal symmetry happens if we have $\vev{\phi} \ne 0$. 
+	On the other hand, we see that $V\ge 0$ for a positive-definite metric $g_{i\wbar{j}}$, therefore if $V = 0$ we have $\pdd{i} V = 0$ and $\pdd{i} \mcal{W} = 0$. In this case we have SUSY vacua, i.e.~SUSY is unbroken. 
+	
+	In summary,
+	\begin{itemize}[noitemsep]
+	\item Vacua: $
+		\pdd{i} V
+		= \pdd{i}\,\pqty\big{\abs{\pdd{i} \mcal{W}}^2}
+		= 0
+	$
+	\item SUSY vacua: $\pdd{i} \mcal{W} = 0$, which implies $V = 0$ thus $\pdd{i} V = 0$. 
+	\end{itemize}
+	Spontaneous breaking of SUSY happens if $\pdd{i} V = 0$ while $V \ne 0$, namely we don't have a SUSY vacua. 	Fig.~1.4 of \textcite{Terning:2006bq} is a nice summary of the situations. These backgrounds will come in handy in \S4. 
+	
+	
 \section{Holomorphy and Non-renormalization}
 	\speaker{Wen-Xin ``Bryan'' Lai}\\
 	\references{
@@ -432,7 +529,14 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 	\end{enumerate}
 	}\vspace{.5\baselineskip}
 	
-	``If a bare parameter is unnaturally set to zero, radiative corrections lead to a renormalized non-zero value. Therefore, if we want a small renormalized value \textit{without} a symmetry, the bare value has to be \textit{fine-tuned}.'' --- \textcite{Seiberg:1993vc} on naturalness. 
+\pagebreak[3]
+	
+	\begin{quotation}
+		``If a bare parameter is unnaturally set to zero, radiative corrections lead to a renormalized non-zero value. Therefore, if we want a small renormalized value \textit{without} a symmetry, the bare value has to be \textit{fine-tuned}.'' 
+		
+		\vspace{1ex}\hfill
+		--- \textcite{Seiberg:1993vc} on naturalness. 
+	\end{quotation}
 	\begin{equation}
 		\boxed{\text{Symmetry}}
 		\quad\xrightleftharpoons[
@@ -441,10 +545,11 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 		\boxed{\text{Amplitudes / Couplings} \approx 0}\,,
 		\ \text{(almost) vanishing}
 	\end{equation}
-{\nobeginpar
-	The argument of non-renormalization by Dine, Polchinski and Seiberg \cite{Seiberg:1993vc}: 
 	
-	\begin{enumerate}
+	\noindent%
+	The argument of non-renormalization by Dine, Polchinski and Seiberg \cite{Seiberg:1993vc}:
+	
+	\begin{enumerate}[beginpenalty=10000]
 	\item \textbf{Philosophy:} we \textit{believe} that the UV theory \textit{should} have almost no coupling and a lot of fields; think of string theory (where we have only one coupling) and string field theory (where there are $\infty$-ly many fields). In fact, this was explicitly pointed out in Section 4.2 of \mbox{\textcite{Dine:1996ui}}\footnote{
 		Oh my, it's \texttt{hep-ph}! This must come from a simpler time when SUSY is expected to be found by experiments. 
 	}:
@@ -473,17 +578,16 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 		
 		This is an example of \textit{selection rules}, just like what we've seen in quantum mechanics (QM) where symmetries constrain the spectrum. 
 		
-		\item \textbf{Weakly coupled IR:} the theory is free in the IR.
+		\item \textbf{Weak coupling limits:} we can take various weak coupling limits in the IR.
 		\end{enumerate}
 	These constraints fix the form of $\mcal{W}(\Phi,\lambda)$ almost entirely. 
 	\end{enumerate}
-}
 	
 	\textit{Note:} in \cite{Seiberg:1993vc} Seiberg chose to call the non-renormalization in SUSY \textit{a violation of naturalness} in the conventional sense, since in the IR we see no global symmetry but we still have many vanishing amptitudes. But I believe it's okay to understand this as a new sense of naturalness, where the vanishing of amplitudes (or the rigid form of the potentials) is protected by supersymmetry and some ``hidden'' global symmetries (that are spontaneously broken in the IR). 
 	
 \subsection{Why can we turn on the couplings?}
 	We've argued that it's physically reasonable to turn on the coupling $\lambda$ and make it a dynamical field\footnote{
-		I believe this is the so-called ``un-Higgs-ing'' procedure, and the un-Higgsed field is called a ``spurion''. \\
+		I believe this is the so-called ``un-Higgs-ing'' procedure, and the unHiggsed field is called a ``spurion''. \\
 		\hspace*{2em}
 		See \https{physicsforums.com/threads/spurion-symmetry.205417}.
 	}. On the other hand, as pointed out by \textcite{Argyres:1996abc}, we can simply think of this as ``just a trick''\footnote{
@@ -502,7 +606,175 @@ This is a note for our recreational journal club on supersymmetry (SUSY). It is 
 %	, and also Section 1.2 of \cite{Lai:2021abc}
 	. 
 	
-\section{Moduli space of vacua \& integrating out}
+\subsection{Wilsonian RG of the Wess--Zumino model}
+	A worked example of this for the Wess--Zumino model is given in \textcite{Argyres:1996abc} and also \cite{Seiberg:1993vc,Intriligator:1995au}. We start with the superpotential at $\Lambda_{\mrm{UV}}$:
+	\begin{equation}
+		\mcal{W}_{\mrm{UV}}
+		= m \Phi^2 + \lambda \Phi^3
+	\end{equation}
+	Here $\lambda$ and $m$ are bare parameters in the UV. 
+	
+	We imagine that the parameters are VEVs of some Higgs fields $\Psi$ with mass $M \gg \Lambda_{\mrm{UV}}$. Basically we are ``embedding'' the theory inside a parent theory with a larger symmetry. 
+	For $M \gg \Lambda_{\mrm{UV}}$ we can't see the fluctuations of $\Psi$, namely its value is ``frozen'' to $\vev{\Psi}$. It's thus natural to ``integrate out'' $\Psi$, and then the theory reduces to the effective theory with $\mcal{W}_{\mrm{UV}}$. This is the Higgs mechanism. 
+	
+\pagebreak[3]
+	
+	However, we can also leave $\Psi$ as it is without integrating it out, and compute all physical observables with the enlarged, parent theory. The results should be exactly the same. In particular, since SUSY is assumed to be preserved along the RG flow, then $\mcal{W} = \mcal{W}(\Psi,\Phi)$ is always holomorphic. This is the main idea of Seiberg's argument. 
+	
+	One concrete realization of this procedure for the $m\Phi^2$ term is given by \cite{Dine:1996ui}:
+	\begin{equation}
+	\begin{aligned}
+		m\Phi^2
+		\leadsto{}&
+			M \pqty{
+				\Psi - m
+			}^2 + \Psi \Phi^2 \\
+	\end{aligned}
+	\end{equation}
+	Here we've been cavaliar about constant shifts of $\mcal{W}$, as they do not affect the physics\footnote{
+		On the other hand, constant shifts of $V = \abs{\pd\mcal{W}}^2$ \textit{do} matter in SUSY theories, as they are related to spontaneous SUSY breaking; see \S2 and \S4. 
+	}. 
+	Also, we are free to include a kinetic term for $\Psi$ in the K\"ahler potential so that it does look like a physical field. However, this does not matter much, as for $M \gg \Lambda_{\mrm{UV}}$, the $
+		M \pqty{\Psi - m}^2
+	$ term dominates and we always have $m \simeq \vev{\Psi}$. In the end the superpotential reduces back to $m\Phi^2$. Holomorphy of $\mcal{W}$ with respect to $m$ then follows from holomorphy with respect to $\Psi$. 
+	
+	There are of course many ways to realize $m$ as the VEV of some dynamical operator. However, the end result is universal, namely $\mcal{W}$ should be holomorphic with respect to $m$. Also, since $m$ is now promoted to be dynamic, it can transform under a larger global symmetry group. 
+	
+	We now perform the RG flow down to the IR scale $\mu$. Note that we have three scales:
+	\begin{equation}
+		M \gg \Lambda_{\mrm{UV}} \gg \mu
+	\end{equation}
+	The idea is that:
+	\begin{itemize}[noitemsep]
+	\item We start with $\mcal{W}_{\mrm{UV}}$ at $\Lambda_{\mrm{UV}}$;
+	\item We ``embed'' it into a parent theory that works up to the energy scale $M$;
+	\item We derive constraints for the IR theory at $\mu$. 
+	\end{itemize}
+	
+	\newparagraph
+	Let's imagine doing Wilsonian renormalization from $\Lambda_{\mrm{UV}}$ down to $\mu$. We are summing over Feynman diagrams where:
+	\begin{itemize}[noitemsep]
+	\item The internal lines are UV modes, carrying some momenta ranging from $\mu$ to $\Lambda_{\mrm{UV}}$;
+	\item The external lines are IR modes, carrying momenta lower than $\mu$ and are treated as non-dynamical background fields as we integrate out the UV modes. 
+	\end{itemize}
+	There will be loop integrals of the form:
+	\begin{equation}
+		\int_\mu^{\Lambda_{\mrm{UV}}}
+			\dd[D]{p}
+	\end{equation}
+	Everything is finite and there is no divergence from the loop integrals! We need not worry about UV or IR divergence. This is the beauty of Wilsonian RG. 
+	
+	If we want to compute the contribution of the high energy modes to the partition function $Z\sim e^{-\mcal{W}}$, we should sum over all diagrams. However, we are interested in the effective potential $\mcal{W}\sim -\log Z$, therefore we need only sum over connected diagrams. Recall that the sum over all diagrams is basically the exponential of the sum over connected diagrams. 
+	
+%\pagebreak[4]
+	
+	\newparagraph
+	After summing over all connected diagrams, we will obtain an IR effective potential $\mcal{W}_{(\mu)}$ at the scale $\mu$. On the other hand, for theories with a mass gap, we can integrate all the way to $\mu \to 0$ with no IR divergence. It is claimed without proof \cite{Argyres:1996abc,Seiberg:1993vc,Intriligator:1995au} that in this case, $\mcal{W}_{\mu\to 0}[\Phi]$ agrees with the quantum effective potential, which is the generating functional of renormalized vertices, or 1PI diagrams. 
+	
+	Generally, we have:
+	\begin{equation}
+		\mcal{Z}
+		= \int
+			\DD{\Phi}\,
+			\exp \frac{i}{\hbar} S[\Phi]
+		= \int\limits_{\hbar\to 0}
+			\DD{\Phi}\,
+			\exp \frac{i}{\hbar} \Gamma[\Phi]
+	\end{equation}
+	$\Gamma[\Phi]$ is the quantum effective action. 
+	The path integral over $\Gamma[\Phi]$ is evaluated under the semiclassical limit: $\hbar\to 0$. This corresponds to a loop expansion of the Feynman diagrams, where we keep only the leading order terms, namely tree level (0-loop) diagrams. The full path integral is thus re-written as a sum over tree diagrams with 1PI vertices. 
+	
+	The relation between the Wilsonian effective action $S_{(\mu)}$ and the quantum effective action $\Gamma$ is explained in \cite{Shifman:1986zi}, which I don't fully understand. Some very help insights are given by \cite{Arkani-Hamed:1997lye,Arkani-Hamed:1997qui}. Here we try to provide some very rough arguments on how $S_{\mu\to 0} = \Gamma$ for a gapped theory. 
+	
+	\begin{itemize}
+	\item As is pointed out by \cite{Arkani-Hamed:1997qui}, this statement is actually scheme dependent. With a physical choice of renormalization scheme, one can define the 1PI couplings by the gauge field correlations at a fixed Euclidean momentum transfer $q^2$ within the background field formalism. By changing the cutoff $\mu$ down to a scale very close to $q^2$, namely $\mu^2 \approx q^2$, one can minimize the difference between $S_{(\mu)}$ and the classical 1PI effective action $\Gamma_{(q)}$ for external fields of momentum $O(q^2)$, since the path integral over quantum fields generates little correction. 
+	
+	\item We provide another rough argument inspired by \cite{physics_stack371789}. Again recall that the sum over connected diagrams can be re-written as the sum over trees with 1PI blobs. On the other hand, note that the external legs carry momenta $\lesssim\mu$, therefore the internal ``bridges'' between 1PI ``islands'' carry momenta ranging between $\mu$ and $\order{n\mu}$, where $n$ is the number of external legs. These bridge momenta are fixed by conservation and are \textit{not} integrated over. For $\mu \to 0$, diagrams with these bridges (i.e.~one particle \textit{reducible} (1PR) diagrams) are suppressed by the mass gap, and thus only 1PI diagrams survive. 
+	\end{itemize}
+	
+	
+\subsection{Non-renormalization from symmetries \& asymptotics}
+	
+	Holomorphy plus global symmetry constrains $\mcal{W}_{(\mu)}$ to be of the form \cite{Seiberg:1993vc,Argyres:1996abc}:
+	\begin{equation}
+		\mcal{W}_{(\mu)}
+		= m\Phi^2
+			f\pqty{\frac{\lambda\Phi}{m}}
+		= \sum_n a_n(\mu)\,
+			\lambda^n m^{1-n} \Phi^{n+2}
+	\end{equation}
+	Here we've written $\mcal{W}_{(\mu)}$ as a Laurent series. At this stage it seems that $a_n$ may depend on the running cutoff $\mu$. 
+	By looking at the asymptotics we can eliminate a bunch of terms: \pagebreak[3]
+	\begin{itemize}[
+		noitemsep
+%		,beginpenalty=10000
+	]
+	\item For $\lambda\to 0$, the theory is free, $\mcal{W} \to m\Phi^2$, therefore only terms with $n\ge 0$ are allowed.
+	\item For $\lambda\to 0$ and $m/\lambda\to 0$, the theory should be\footnote{
+		I guess the more accurate way to say it is that the theory is \textit{assumed} to be weakly coupled. 
+	} weakly coupled, therefore only terms with $n\le 1$ are allowed. 
+	
+	\end{itemize}
+	
+	Alternatively, we can look at possible Feynman diagrams to eliminate the $n\ge 2$ terms. There are only tree level diagrams that can generate these terms, but they are not 1PI for $n\ge 2$. These 1PR diagrams should not contribute to $\mcal{W}_{\mu\to 0}$, due to the following logic \cite{Argyres:1996abc,Seiberg:1993vc}:
+	
+	\begin{itemize}
+	\item If there is a mass gap: $m > 0$, then $\mcal{W}_{\mu\to 0}$ is identified with the 1PI effective potential, and thus 1PR diagrams should not contribute;
+	
+	\item If $m = 0$, then $\mcal{W}_{\mu\to 0}$ does not coincide with the 1PI effective potential, so in principle we should include these tree diagrams in $\mcal{W}_{(\mu)}$. 
+	
+	However, the $m \to 0$ limit is completely smooth for $\mcal{W}_{(\mu)}$, since to obtain $\mcal{W}_{(\mu)}$ we only integrate modes with momenta $\gtrsim \mu$ and never reach the IR. Therefore the form of $\mcal{W}_{(\mu)}$ with $m = 0$ is identical to that with $m > 0$. 
+	\end{itemize}
+	
+	Now we've eliminated most of the terms in the expansion. We have:
+	\begin{equation}
+		\mcal{W}_{(\mu)}
+		= a_0(\mu)\,m\Phi^2
+			+ a_1(\mu)\,\lambda\Phi^3
+	\end{equation}
+	This is already quite remarkable: there is no new vertex generated from RG flow. 
+	Note that $a_{0,1}(\mu)$ may depend on $\mu$ but not $m$ or $\lambda$. We can again look at the limits: as $\lambda\to 0$, $\mcal{W} \to m\Phi^2$ for any $\mu$, therefore $a_0(\mu) \equiv 1$,
+	\begin{equation}
+		\mcal{W}_{(\mu)}
+		= m\Phi^2
+			+ a_1(\mu)\,\lambda\Phi^3
+	\end{equation}
+	
+	There are again two proposals to fix $a_1(\mu)$:
+	\begin{itemize}
+	\item Consider $\lambda\to 0$, $m\to 0$ with arbitrary $m/\lambda$. We should have \cite{Intriligator:1995au}:
+	\begin{equation}
+		\mcal{W}_{(\mu)} = \mcal{W}_{\mrm{UV}},
+	\quad
+		f\pqty{t = \frac{\lambda\Phi}{m}}
+		= 1 + t,
+	\end{equation}
+	where $t$ is now arbitrary, thus $a_1(\mu) \equiv 1$. However, to me this sounds like an additional weak coupling \textit{assumption}. 
+	
+	\item According to \textcite{Argyres:1996abc}, $a_1(\mu)$ can be fixed by matching to perturbation theory for small $\lambda$. Let's try to do this! We have:
+	\begin{equation}
+		\mcal{W}_{\mrm{UV}} [\Phi+\chi]
+		= \mcal{W}_{\mrm{UV}} [\Phi]
+			+ m\chi^2
+			+ 2m\Phi\chi
+			+ 3\lambda\Phi^2\chi
+			+ 3\lambda\Phi\chi^2
+			+ \lambda\chi^3
+	\end{equation}
+	To generate the $a_1(\mu)\,\lambda\Phi^3$, we cannot include any $m$ coefficients, and we must include $\lambda$ and $\Phi$. Therefore only the $
+		3\lambda\Phi^2\chi, 3\lambda\Phi\chi^2
+	$ terms might contribute. There is only one diagram that I can think of which might contribute: $(3\lambda\Phi\chi^2)^3$ with the internal $\chi$'s contracted, forming a 1-loop diagram. However. the internal $\chi$ contractions again generate $m$ dependence. Therefore this diagram must not contribute to $a_1(\mu)\,\lambda\Phi^3$. In the end, we must have $a_1(\mu) \equiv 1$. 
+	
+	\end{itemize}
+	
+	Finally, we have:
+	\begin{equation}
+		\mcal{W}_{(\mu)}
+		= m\Phi^2 + \lambda\Phi^3
+	\end{equation}
+	Namely, the superpotential is not renormalized. In our current scheme where the field strength $\Phi$ is not renormalized, $m,\lambda$ is constant along the flow. However, the K\"ahler potential is non-holomorphic from the start and it is renormalized, which leads to field strength renormalization. 
+	
+\section{Moduli Space of Vacua}
 	\speaker{Yuan Zhong}\\
 	\references{%
 %	\begin{enumerate}[noitemsep,topsep=0pt]
